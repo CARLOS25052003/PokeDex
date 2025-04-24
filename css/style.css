@@ -23,7 +23,7 @@ header {
 .volume-control {
     position: relative;
     display: inline-flex;
-    flex-direction: column; /* stack button and slider vertically */
+    flex-direction: column;
     align-items: center;
     gap: 8px;
 }
@@ -48,7 +48,6 @@ header {
     transform: scale(0.9);
 }
 
-/* Vertical slider styling */
 .volume-slider {
     display: none;
     width: 8px;

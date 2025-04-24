@@ -12,7 +12,6 @@ const volumeControl = document.querySelector('.volume-control');
 const volumeIcon = muteBtn.querySelector('img');
 
 
-// Background music
 const bgMusic = new Audio('img/KanokoTown.mp3');
 bgMusic.loop = true;
 bgMusic.volume = 0.2;
@@ -22,7 +21,6 @@ let searchPokemon = 1;
 buttonSound.load();
 let musicStarted = false;
 
-// start bgMusic after first gesture
 function tryPlayMusic() {
     if (!musicStarted) {
         bgMusic.play().catch(() => {});
@@ -32,7 +30,6 @@ function tryPlayMusic() {
 }
 window.addEventListener('click', tryPlayMusic);
 
-// volume slider only controls volume & mute state
 volumeSlider.addEventListener('input', () => {
     const vol = parseFloat(volumeSlider.value);
     bgMusic.volume = vol;
@@ -40,7 +37,6 @@ volumeSlider.addEventListener('input', () => {
     volumeIcon.src = vol === 0 ? 'img/icons8-no-audio-52.png' : 'img/icons8-audio-50.png';
 });
 
-// Fetch and render
 async function fetchPokemon(id) {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     return res.ok ? res.json() : null;
@@ -62,23 +58,19 @@ async function renderPokemon(id) {
     }
 }
 
-// form and buttons
 form.addEventListener('submit', e => { e.preventDefault(); renderPokemon(input.value.toLowerCase()); });
 buttonPrev.addEventListener('click', () => { if (searchPokemon > 1) { buttonSound.play(); renderPokemon(--searchPokemon); } });
 buttonNext.addEventListener('click', () => { buttonSound.play(); renderPokemon(++searchPokemon); });
 
-// mute button only toggles slider visibility
 muteBtn.addEventListener('click', e => {
     e.stopPropagation();              // prevent document click handler
     volumeControl.classList.toggle('visible');
 });
 
-// hide slider when clicking outside
 document.addEventListener('click', e => {
     if (!volumeControl.contains(e.target)) {
         volumeControl.classList.remove('visible');
     }
 });
 
-// initial render
 renderPokemon(searchPokemon);
