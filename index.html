@@ -1,46 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <link rel="icon" href="./img/favicon-16x16.png">
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./img/favicon-16x16.png" />
+    <link rel="stylesheet" href="css/style.css" />
     <script defer src="javas/js.js"></script>
     <title>Pokédex</title>
-
-
 </head>
 <body>
-
+<header>
+    <div class="volume-control">
+        <button id="mute-button" class="control-btn">
+            <img src="img/icons8-audio-50.png" alt="Volume" class="icon-img" />
+        </button>
+        <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="0.2" class="volume-slider">
+    </div>
+</header>
 <main>
-        <img src="#" alt="pokemon" class="pokemon__image">
-
-    <h1 class ="pokemon__data">
-     <span class="pokemon__number"></span>
-     <span class="pokemon__nome"></span>
+    <img src="#" alt="pokemon" class="pokemon__image" />
+    <h1 class="pokemon__data">
+        <span class="pokemon__number"></span>
+        <span class="pokemon__nome"></span>
     </h1>
-
     <form class="form">
-        <input
-                type="search"
-                class="input_search"
-                placeholder="Name or Number"
-                required
-        >
+        <input type="search" class="input_search" placeholder="Name or Number" required />
     </form>
-
     <div class="buttons">
         <button class="button btn-prev">Prev &lt;</button>
         <button class="button btn-next">Next &gt;</button>
     </div>
-
-    <img src="img/pokedex.png" alt="pokedex" class="pokedex">
+    <img src="img/pokedex.png" alt="pokedex" class="pokedex" />
 </main>
-<header>
-    <button id="mute-button">🔊</button>
-</header>
 </body>
 </html>
